@@ -1,8 +1,5 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import GoogleProvider from "next-auth/providers/google"
-import FacebookProvider from "next-auth/providers/facebook"
-import GithubProvider from "next-auth/providers/github"
 
 // Mock user database for demo purposes
 const users = [
@@ -49,18 +46,6 @@ const handler = NextAuth({
 
         return null
       },
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "mock-google-client-id",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "mock-google-client-secret",
-    }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID || "mock-facebook-client-id",
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "mock-facebook-client-secret",
-    }),
-    GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID || "mock-github-client-id",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || "mock-github-client-secret",
     }),
   ],
   pages: {
